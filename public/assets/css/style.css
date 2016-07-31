@@ -1,0 +1,17 @@
+li {
+  list-style-type: none;
+ }
+
+ #burgerPicture {
+ 	display: block;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	height: 200px;
+ 	width: 200px;
+ 	background-color: #99ccff;
+ }
+
+ body {
+ 	background-color: #99ccff;
+ 	text-align: center;
+ 	}
