@@ -1,29 +1,33 @@
 'use strict';
-
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-      Example:*/
-      return queryInterface.bulkInsert('burgers', [
-      {burger_name: 'Austin Burger',
-       devoured: false,
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('burgers', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
-      {burger_name: 'Cowboy Burger',
-      devoured: false,
+      burger_name: {
+        type: Sequelize.STRING
       },
-      {burger_name: 'Californian Burger',
-      devoured: false,
-      }], {});
-
+      devoured: {
+        type: Sequelize.BOOLEAN,
+        default: false
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      }
+    });
   },
-
-  down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-      Example:*/
-      return queryInterface.bulkDelete('burgers', null, {});
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('burgers');
   }
 };
